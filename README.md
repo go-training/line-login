@@ -2,7 +2,7 @@
 
 <img src="./images/login-with-qrcode.png" />
 
-Trying LINE Login on a web app using [golang](https://golang.org)
+Trying LINE Login on a web app using [golang](https://golang.org). See [demo site](https://line-login-demo-tw.herokuapp.com/).
 
 ### Heroku
 
