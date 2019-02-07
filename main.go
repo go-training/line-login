@@ -2,7 +2,8 @@ package main
 
 import (
 	"net/http"
-	"os"
+
+	"github.com/go-training/line-login/config"
 
 	"github.com/gin-gonic/gin"
 )
@@ -19,10 +20,7 @@ func setupRouter() *gin.Engine {
 }
 
 func main() {
+	conf := config.MustLoad()
 	r := setupRouter()
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
-	r.Run(":" + port)
+	r.Run(":" + conf.HTTP.Port)
 }
