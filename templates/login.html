@@ -6,6 +6,12 @@
 </head>
 <body>
 <div class="container">
+  <div style="margin: 0 0 20px 0; text-align: center">
+    <img src="/images/login-with-qrcode.png">
+  </div>
+  <div class="alert alert-primary" role="alert">
+    {{ .title }}
+  </div>
   <a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id={{.lineID}}&redirect_uri={{.callback}}&state=12345abcde&scope=openid%20profile%20email&nonce=09876xyz"><img src="./images/btn_login_base.png"></a>
 </div>
 </body>

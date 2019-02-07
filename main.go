@@ -24,7 +24,7 @@ func setupRouter() *gin.Engine {
 	// user login page
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "login.html", gin.H{
-			"title":    "line login example",
+			"title":    "Line QR Code Login Example",
 			"lineID":   conf.Line.ID,
 			"callback": conf.Line.Callback,
 		})
