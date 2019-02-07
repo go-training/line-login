@@ -35,3 +35,7 @@ Deploy it!
 ```
 $ git push heroku master
 ```
+
+Line config in heroku dashboard:
+
+<img src="./images/line-config.png">
