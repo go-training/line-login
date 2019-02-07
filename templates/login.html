@@ -1,0 +1,12 @@
+<html>
+<head>
+  <title>{{ .title }}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id={{.lineID}}&redirect_uri={{.callback}}&state=12345abcde&scope=openid%20profile&nonce=09876xyz"><img src="./images/btn_login_base.png"></a>
+</div>
+</body>
+</html>

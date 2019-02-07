@@ -9,8 +9,9 @@ type (
 			Root string `default:"/"`
 		}
 		Line struct {
-			ChannelID     string
-			ChannelSecret string
+			ID       string
+			Secret   string
+			Callback string
 		}
 	}
 )
