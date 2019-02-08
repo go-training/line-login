@@ -36,6 +36,12 @@ Deploy it!
 $ git push heroku master
 ```
 
+View the logs. For more information, see [View logs](https://devcenter.heroku.com/articles/logging#view-logs).
+
+```
+$ heroku logs --app {Heroku app name} --tail
+```
+
 Line config in heroku dashboard:
 
 <img src="./images/line-config.png">
