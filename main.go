@@ -11,6 +11,7 @@ import (
 	"gopkg.in/resty.v1"
 )
 
+// AuthSuccess get access token
 type AuthSuccess struct {
 	AccessToken  string  `json:"access_token"`
 	ExpiresIn    float64 `json:"expires_in"`
