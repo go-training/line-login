@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>{{ .title }} - {{ .email }}</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+  crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <div style="margin: 0 0 20px 0; text-align: center">
+    <img src="/images/login-with-qrcode.png" style="width: 400px">
+  </div>
+  <div class="alert alert-primary" role="alert">
+    {{ .title }}
+  </div>
+  <div><img src="{{ .pictureURL }}/large" /></div>
+  <h2>ID: {{ .userID }}</h2>
+  <h2>Name: {{ .displayName }}</h2>
+  <h2>Status: {{ .statusMessage }}</h2>
+  <h3><a href="/">go to home page</a></h3>
+</div>
+</body>
+</html>

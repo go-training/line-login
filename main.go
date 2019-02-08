@@ -20,6 +20,15 @@ type AuthSuccess struct {
 	TokenType    string  `json:"token_type"`
 }
 
+// Profile Gets a user's display name, profile image, and status message.
+// See: https://developers.line.biz/en/reference/social-api/#get-user-profile
+type Profile struct {
+	DisplayName   string `json:"displayName"`
+	UserID        string `json:"userId"`
+	PictureURL    string `json:"pictureUrl"`
+	StatusMessage string `json:"statusMessage"`
+}
+
 func setupRouter() *gin.Engine {
 	conf := config.MustLoad()
 	r := gin.Default()
@@ -47,7 +56,7 @@ func setupRouter() *gin.Engine {
 		// changed := c.Query("friendship_status_changed")
 
 		authSuccess := &AuthSuccess{}
-		resp, err := resty.R().
+		resp, _ := resty.R().
 			SetHeader("Content-Type", "application/x-www-form-urlencoded").
 			SetFormData(map[string]string{
 				"grant_type":    "authorization_code",
@@ -58,16 +67,23 @@ func setupRouter() *gin.Engine {
 			}).
 			SetResult(authSuccess). // or SetResult(AuthSuccess{}).
 			Post("https://api.line.me/oauth2/v2.1/token")
-		fmt.Printf("\nResponse Error: %v", err)
 		fmt.Printf("\nResponse Body: %v", resp)
 
-		c.JSON(http.StatusOK, gin.H{
-			"AccessToken":  authSuccess.AccessToken,
-			"ExpiresIn":    authSuccess.ExpiresIn,
-			"IDToken":      authSuccess.IDToken,
-			"RefreshToken": authSuccess.RefreshToken,
-			"Scope":        authSuccess.Scope,
+		profile := &Profile{}
+		resp, _ = resty.R().
+			SetHeader("Authorization", "Bearer "+authSuccess.AccessToken).
+			SetResult(profile). // or SetResult(AuthSuccess{}).
+			Get("https://api.line.me/v2/profile")
+		fmt.Printf("\nResponse Body: %v", resp)
+
+		c.HTML(http.StatusOK, "success.html", gin.H{
+			"title":         "Line QR Code Login Example",
+			"userID":        profile.UserID,
+			"displayName":   profile.DisplayName,
+			"pictureURL":    profile.PictureURL,
+			"statusMessage": profile.StatusMessage,
 		})
+		return
 	})
 
 	return r
