@@ -16,3 +16,35 @@ trigger:
   event:
   - push
   - pull_request
+
+---
+kind: pipeline
+name: linux-amd64
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: publish
+  pull: always
+  image: appleboy/heroku-base
+  settings:
+    dockerfile: Dockerfile
+    process_type: web
+    app: line-login-demo-tw
+    username: "appleboy.tw@gmail.com"
+    api_key: "1b3a2082-a20f-4605-a2a9-0dad0a4b19b0"
+  when:
+    event:
+      exclude:
+      - pull_request
+
+trigger:
+  ref:
+  - refs/heads/master
+  - "refs/pulls/**"
+  - "refs/tags/**"
+
+depends_on:
+- lint
