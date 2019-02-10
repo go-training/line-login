@@ -22,7 +22,7 @@
       "required": true
     },
     "TEST_LINE_CALLBACK": {
-      "description": "URL that users are redirected to after authentication and authorization",
+      "description": "URL that users are redirected to after authentication and authorization (ex: https://app_namne.herokuapp.com/callback)",
       "required": true
     }
   }
