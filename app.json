@@ -2,6 +2,7 @@
   "name": "line-login-demo-tw",
   "description": "Line login sample code",
   "repository": "https://github.com/go-training/line-login",
+  "logo": "https://line-login-demo-tw.herokuapp.com/images/login-with-qrcode.png",
   "keywords": ["LINE", "go", "golang"],
   "buildpacks": [
     {
