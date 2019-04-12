@@ -21,13 +21,13 @@ $ git clone https://github.com/go-training/line-login.git
 Set the buildpack for your application
 
 ```
-$ heroku config:add BUILDPACK_URL=https://github.com/go-training/line-login.git
+$ heroku config:add BUILDPACK_URL=https://github.com/go-training/line-login.git -a {Heroku app name}
 ```
 
 Add Heroku git remote:
 
 ```
-$ heroku git:remote -a your-application
+$ heroku git:remote -a {Heroku app name}
 ```
 
 Deploy it!
