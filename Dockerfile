@@ -1,4 +1,4 @@
-FROM golang:1.11-alpine as build_base
+FROM golang:1.12-alpine as build_base
 RUN apk add bash ca-certificates git gcc g++ libc-dev
 WORKDIR /app
 # Force the go compiler to use modules
