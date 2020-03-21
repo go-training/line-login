@@ -1,7 +1,9 @@
 package main
 
 import (
+	"context"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/go-training/line-login/config"
@@ -91,7 +93,5 @@ func setupRouter() *gin.Engine {
 }
 
 func main() {
-	conf := config.MustLoad()
-	r := setupRouter()
-	r.Run(":" + conf.HTTP.Port)
+	log.Fatal(RunHTTPServer(context.Background()))
 }

@@ -16,5 +16,8 @@ lint:
 	fi
 	revive -config .revive.toml ./... || exit 1
 
+build_linux_lambda:
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -tags 'lambda' -ldflags '$(EXTLDFLAGS)-s -w $(LDFLAGS)' -o release/linux/lambda/$(EXECUTABLE)
+
 clean:
 	$(GO) clean -modcache -cache -x -i ./...
