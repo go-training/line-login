@@ -1,5 +1,8 @@
 # line-login
 
+[![Build Status](https://cloud.drone.io/api/badges/go-training/line-login/status.svg)](https://cloud.drone.io/go-training/line-login)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0566a401-989c-4215-93d2-1207f376a30e/deploy-status)](https://app.netlify.com/sites/login-line/deploys)
+
 ![line login](./images/login-with-qrcode.png)
 
 Trying LINE Login on a web app using [golang](https://golang.org). See [demo site](https://line-login-demo-tw.herokuapp.com/).
