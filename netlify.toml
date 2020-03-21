@@ -1,0 +1,12 @@
+[build]
+  command = "make build"
+  functions = "bin"
+
+[build.environment]
+  GO_IMPORT_PATH = "github.com/go-training/line-login"
+  GO111MODULE = "on"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/line-login/:splat"
+  status = 200
